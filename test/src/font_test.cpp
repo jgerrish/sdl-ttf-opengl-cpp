@@ -5,6 +5,18 @@
 #include "spdlog/spdlog.h"
 #endif
 
+#ifndef FONT_DIR
+#define FONT_DIR "../../data/fonts/"
+#endif
+
+#ifndef VALID_ROBOTO_REGULAR_FONT
+#define VALID_ROBOTO_REGULAR_FONT "Roboto/Roboto-Regular.ttf"
+#endif
+
+#ifndef INVALID_ROBOTO_REGULAR_FONT
+#define INVALID_ROBOTO_REGULAR_FONT "Roboto/Robotor-Regular.ttf"
+#endif
+
 #define HAVE_OPENGL
 
 #include "SDL_opengl.h"
@@ -54,8 +66,9 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl));
 
-    std::string font_fn(
-        "../data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    // seperating two strings with a space creates a single
+    // concatenated string
+    std::string font_fn(FONT_DIR VALID_ROBOTO_REGULAR_FONT);
 
     FontTester font_tester(sdl, ttf, font_fn);
   }
@@ -70,8 +83,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl));
 
-    std::string font_fn(
-        "../data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR VALID_ROBOTO_REGULAR_FONT);
 
     FontTester font_tester(sdl, ttf, font_fn);
   }
@@ -89,8 +101,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl));
 
-    std::string font_fn(
-        "data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR INVALID_ROBOTO_REGULAR_FONT);
 
     CHECK_THROWS_WITH_AS([&] { FontTester font_tester(sdl, ttf, font_fn); }(),
                          "ERROR::FONT::FONT_OPEN_FAILED",
@@ -108,8 +119,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl));
 
-    std::string font_fn(
-        "data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR INVALID_ROBOTO_REGULAR_FONT);
 
     FontTester font_tester(sdl, ttf, font_fn);
 
@@ -154,8 +164,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl, mock_sdl_ttf_wrapper));
 
-    std::string font_fn(
-        "../data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR VALID_ROBOTO_REGULAR_FONT);
 
     EXPECT_CALL(*mock_sdl_ttf_wrapper, OpenFont(StrEq(font_fn.c_str()), 2))
         .Times(1)
@@ -197,8 +206,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl, mock_sdl_ttf_wrapper));
 
-    std::string font_fn(
-        "../data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR VALID_ROBOTO_REGULAR_FONT);
 
     EXPECT_CALL(*mock_sdl_ttf_wrapper, OpenFont(StrEq(font_fn.c_str()), 2))
         .Times(1)
@@ -243,8 +251,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl, mock_sdl_ttf_wrapper));
 
-    std::string font_fn(
-        "data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR INVALID_ROBOTO_REGULAR_FONT);
 
     EXPECT_CALL(*mock_sdl_ttf_wrapper, OpenFont(StrEq(font_fn.c_str()), 2))
         .Times(1)
@@ -285,8 +292,7 @@ TEST_SUITE("sdl_ttf_opengl_cpp_font") {
         std::make_shared<sdl_ttf_opengl_cpp::SDLTTF>(
             sdl_ttf_opengl_cpp::SDLTTF(sdl, mock_sdl_ttf_wrapper));
 
-    std::string font_fn(
-        "data/fonts/DejaVuSansMono/DejaVuSansMNerdFontMono-Regular.ttf");
+    std::string font_fn(FONT_DIR INVALID_ROBOTO_REGULAR_FONT);
 
     EXPECT_CALL(*mock_sdl_ttf_wrapper, OpenFont(StrEq(font_fn.c_str()), 2))
         .Times(1)

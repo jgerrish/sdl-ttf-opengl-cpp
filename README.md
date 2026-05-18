@@ -59,7 +59,18 @@ $ make
 
 You can test the library with the following command:
 
-$ test/sdl-ttf-opengl-cpp-test
+$ cd build/test
+$ ./sdl-ttf-opengl-cpp-test
+
+Or to run it with ctest:
+
+$ cd build
+$ ctest
+
+There may be issues finding the testing fonts included with the
+program if you run from a different directory.  You can include
+FONT_DIR as a CMake variable to explicitly point to the font directory
+(data/fonts includes the Roboto font).
 
 ### Windows ###
 
