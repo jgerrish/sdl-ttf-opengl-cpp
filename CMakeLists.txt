@@ -76,6 +76,7 @@ if(spdlog_FOUND)
   target_link_libraries(${PROJECT_NAME} PUBLIC spdlog::spdlog $<$<BOOL:${MINGW}>:ws2_32>)
 endif()
 
+find_package(fmt REQUIRED)
 
 # find_package(doctest REQUIRED)
 # if (doctest_FOUND)
