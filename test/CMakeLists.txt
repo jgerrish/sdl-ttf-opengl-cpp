@@ -133,5 +133,10 @@ endif()
 
 add_test(NAME ${TEST_MAIN} COMMAND $<TARGET_FILE:${TEST_MAIN}> --no-version)
 
+if(FONT_DIR)
+  message("FONT_DIR=${FONT_DIR} passed in to CMake, overriding font directory")
+  target_compile_definitions(${TEST_MAIN} PRIVATE "FONT_DIR=\"${FONT_DIR}\"")
+endif()
+
 include(${PROJECT_SOURCE_DIR}/scripts/cmake/doctest.cmake)
 doctest_discover_tests(${TEST_MAIN})

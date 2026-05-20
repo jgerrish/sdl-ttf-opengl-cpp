@@ -1,0 +1,12 @@
+{
+    "name": "sdl-ttf-opengl-cpp",
+    "version": "0.1.0",
+    "dependencies": [
+	"doctest",
+	"fmt",
+	"gtest",
+	"sdl2",
+	"sdl2-ttf",
+	"spdlog"
+    ]
+}

@@ -15,6 +15,7 @@ CMake
 ninja
 
 The following libraries are required:
+fmt
 SDL2
 SDL2_ttf
 spdlog
@@ -25,7 +26,7 @@ pkg-config
 
 On Ubuntu, they can be installed with the following:
 
-apt install cmake ninja-build doctest-dev doxygen google-mock googletest libsdl2-dev libsdl2-ttf-dev libspdlog-dev pkg-config
+apt install cmake ninja-build doctest-dev doxygen google-mock googletest libfmt-dev libsdl2-dev libsdl2-ttf-dev libspdlog-dev pkg-config
 
 doctest can be downloaded from GitHub:
 [doctest](https://github.com/doctest/doctest.git)
@@ -86,7 +87,7 @@ Install prerequisites with vcpkg:
 
 For 64-bit machines:
 
-vcpkg.exe install doctest gtest sdl2 sdl2_ttf spdlog --triplet x64-windows
+vcpkg.exe install doctest fmt gtest sdl2 sdl2-ttf spdlog --triplet x64-windows
 
 
 Generate CMake configuration

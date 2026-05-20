@@ -242,6 +242,7 @@ message("CMAKE_INSTALL_INCLUDEDIR: ${CMAKE_INSTALL_INCLUDEDIR}")
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/sdl-ttf-opengl-cpp
     CACHE PATH "Location of header files" )
 
+
 include(CMakePackageConfigHelpers)
 configure_package_config_file(scripts/sdl-ttf-opengl-cpp-config.cmake.in
   ${CMAKE_CURRENT_BINARY_DIR}/cmake/sdl-ttf-opengl-cpp-config.cmake
